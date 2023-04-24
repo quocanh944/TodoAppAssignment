@@ -1,0 +1,59 @@
+﻿@model TodoAppAssignment.Models.RegisterViewModel;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Register - TodoAppAssignment</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TodoAppAssignment.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <h1 class="text-center mb-5">Welcome to Han's TodoApp</h1>
+    <form class="w-25 mt-5 m-auto" asp-controller="Account" method="post">
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+            <label class="form-label">Your Fullname:</label>
+            <input type="text" asp-for="Name" class="form-control" />
+        </div>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <label class="form-label">Email address</label>
+            <input type="email" asp-for="Email" class="form-control" />
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <label class="form-label">Password</label>
+            <input type="password" asp-for="Password" class="form-control" />
+        </div>
+
+        <!-- Confirm Password input -->
+        <div class="form-outline mb-4">
+            <label class="form-label">Confirm Password</label>
+            <input type="password" asp-for="ConfirmPassword" class="form-control" />
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
+
+        @if (ViewData["ValidateMessage"] != null)
+        {
+            <p class="text-danger"> @ViewData["ValidateMessage"] </p>
+        }
+
+        <!-- Register buttons -->
+        <div class="text-center">
+            <p>Is a member? <a asp-area="" asp-controller="Access" asp-action="Login">Login</a>
+        </div>
+    </form>
+</body>
+</html>

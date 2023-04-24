@@ -1,0 +1,46 @@
+﻿@model TodoAppAssignment.Models.LoginViewModel;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Login - TodoAppAssignment</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TodoAppAssignment.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <h1 class="text-center mb-5">Welcome to Han's TodoApp</h1>
+    <form class="w-25 mt-5 m-auto" asp-controller="Access" method="post">
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <label class="form-label">Email address</label>
+            <input type="email" asp-for="Email" class="form-control" />
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <label class="form-label">Password</label>
+            <input type="password" asp-for="Password" class="form-control" />
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+        @if (ViewData["ValidateMessage"] != null)
+        {
+            <p class="text-danger"> @ViewData["ValidateMessage"] </p>
+        }
+
+        <!-- Register buttons -->
+        <div class="text-center">
+            <p>Not a member? <a asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+        </div>
+    </form>
+</body>
+</html>
